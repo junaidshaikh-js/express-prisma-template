@@ -1,14 +1,11 @@
 {
   "name": "express-prisma-template",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "type": "module",
-  "imports": {
-    "#/*": "./src/*"
-  },
   "scripts": {
     "dev": "node --experimental-strip-types --watch src/index.ts",
-    "build": "npx esbuild src/index.ts --bundle --platform=node --format=esm --target=node24 --outfile=dist/index.js --packages=external",
+    "build": "npx esbuild src/index.ts --bundle --platform=node --format=esm --target=node24 --outfile=dist/index.js --packages=external --alias:#=./src --resolve-extensions=.ts,.js",
     "start": "node dist/index.js",
     "lint": "eslint .",
     "format": "prettier --write .",
